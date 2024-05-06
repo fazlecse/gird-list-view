@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dropdown Example</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.min.js"></script>
+    <style>
+        .dropdown-toggle img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+
+        .dropdown-item img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar-bottom">
+        <div class="dropdown dropup">
+            <button type="button" class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                <img src="./assets/img/1.png" alt="">
+                <div class="title">Yellow Bag Solutions Ltd</div>
+            </button>
+
+            <ul class="dropdown-menu">
+                <li>
+                    <a class="dropdown-item" href="javascript:void(0)">
+                        <img src="./assets/img/1.png" alt="">
+                        <div class="title">Yellow Bag Solutions Ltd</div>
+                    </a>
+                </li>
+                <li>
+                    <a class="dropdown-item" href="javascript:void(0)">
+                        <img src="./assets/img/2.png" alt="">
+                        <div class="title">Metlife Cia Ltda</div>
+                    </a>
+                </li>
+                <li>
+                    <a class="dropdown-item" href="javascript:void(0)">
+                        <img src="./assets/img/3.png" alt="">
+                        <div class="title">hrms laravel</div>
+                    </a>
+                </li>
+                <li>
+                    <a class="dropdown-item" href="javascript:void(0)">
+                        <img src="./assets/img/4.png" alt="">
+                        <div class="title">Vietcombank</div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $('.dropdown-item').on('click', function() {
+                var selectedImageSrc = $(this).find('img').attr('src');
+                var selectedTitle = $(this).find('.title').text();
+
+                var dropdownToggle = $('.dropdown-toggle');
+                dropdownToggle.find('img').attr('src', selectedImageSrc);
+                dropdownToggle.find('.title').text(selectedTitle);
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+/* styles.css */
+
+/* Default style for grid view */
+.grid {
+   display: grid;
+   grid-template-columns: repeat(2, 1fr);
+   gap: 10px;
+}
+
+.list {
+   display: block;
+}
+
+.item {
+   border: 1px solid #ccc;
+   padding: 10px;
+   background: #f9f9f9;
+   text-align: center;
+}

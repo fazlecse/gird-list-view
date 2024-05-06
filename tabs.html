@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Custom Tabs</title>
+  <style>
+    /* Styles for tabs and content */
+    .tab-container {
+      display: flex;
+    }
+
+    .tab {
+      cursor: pointer;
+      padding: 10px 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px 5px 0 0;
+      background-color: #f2f2f2;
+      margin-right: 5px;
+    }
+
+    .tab-active {
+      color: white;
+      background-color: rgb(122, 168, 132);
+      border-bottom: 2px solid rgb(22, 146, 70);
+    }
+
+    .tab-content {
+      display: none;
+      padding: 15px;
+      border: 1px solid #ccc;
+      border-radius: 0 0 5px 5px;
+      width: 100%;
+    }
+
+    .tab-content-active {
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="tab-container">
+    <div class="tab tab-active" data-id="tab1">Tab 1</div>
+    <div class="tab" data-id="tab2">Tab 2</div>
+    <div class="tab" data-id="tab3">Tab 3</div>
+  </div>
+
+  <div id="tab1" class="tab-content tab-content-active">
+    <h2>Tab 1 Content</h2>
+    <p>This is the content of Tab 1.</p>
+  </div>
+
+  <div id="tab2" class="tab-content">
+    <h2>Tab 2 Content</h2>
+    <p>This is the content of Tab 2.</p>
+  </div>
+
+  <div id="tab3" class="tab-content">
+    <h2>Tab 3 Content</h2>
+    <p>This is the content of Tab 3.</p>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      let tabs = document.querySelectorAll('.tab');
+
+      tabs.forEach(tab => {
+        console.log(tab);
+        tab.addEventListener('click', function () {
+          // Remove active classes from all tabs and tab contents
+          tabs.forEach(function (tab) {
+            tab.classList.remove('tab-active');
+            document.getElementById(tab.getAttribute('data-id')).classList.remove('tab-content-active');
+          });
+
+          // Add active classes to the clicked tab and its content
+          this.classList.add('tab-active');
+          document.getElementById(this.getAttribute('data-id')).classList.add('tab-content-active');
+        });
+      });
+    });
+  </script>
+
+</body>
+
+</html>
